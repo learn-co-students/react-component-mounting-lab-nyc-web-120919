@@ -6,24 +6,18 @@ class App extends Component {
 
   //no props being used here, so we can use the shorthand declaration of state
   state = {
-    timerIDs: []
+    timerIDs: [],
+    quote: null
   }
 
-
   //Your code here:
-
-
-
-
-
-
-
-
+  componentDidMount() {
+    this.handleAddTimer()
+  }
 
   // No need to modify anything in render or the class methods below
   // Unless, of course, you're curious about how it all works
   render() {
-
     return (
       <div className="App">
         <h1>MultiTimer</h1>
@@ -39,7 +33,7 @@ class App extends Component {
 
   // returns array of components written in JSX, mapped from this.state.timerIDs
   renderTimers = () => this.state.timerIDs.map(id => {
-    return <Timer key={id} id={id} removeTimer={this.removeTimer} />
+    return <Timer key={id} id={id} removeTimer={this.removeTimer}/>
   })
 
   // adds a random number for timer ID
